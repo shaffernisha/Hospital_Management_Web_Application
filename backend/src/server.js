@@ -23,17 +23,21 @@ app.get('/api/health', (req, res) => {
 });
 // GET /api/status
 app.get('/api/status', (req, res) => {
-  res.json({ success: true, server: 'Running', port: 5000 });
+  res.json({ 
+    success: true, 
+    server: 'Running', 
+    port: process.env.PORT || 5000,
+    mongoConnected: mongoose.connection.readyState === 1
+  });
 });
-
 // IMPORT ALL ROUTES
-const authRoutes = require('./routes/auth');
-const doctorRoutes = require('./routes/doctors');
-const appointmentRoutes = require('./routes/appointments');
-const patientRoutes = require('./routes/patients');
-const prescriptionRoutes = require('./routes/prescriptions');
-const adminRoutes = require('./routes/admin');
-const chatbotRoutes = require('./routes/chatbot');
+const authRoutes = require('./src/routes/auth');
+const doctorRoutes = require('./src/routes/doctors');
+const appointmentRoutes = require('./src/routes/appointments');
+const patientRoutes = require('./src/routes/patients');
+const prescriptionRoutes = require('./src/routes/prescriptions');
+const adminRoutes = require('./src/routes/admin');
+const chatbotRoutes = require('./src/routes/chatbot');
 // Endpoints: POST /register, POST /login, POST /logout, POST /forgot-password
 //  USE ALL ROUTES
 app.use('/api/auth', authRoutes);
@@ -57,7 +61,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 // Medical History Routes: /api/medical-history
 // Endpoints: POST /save, GET /me, GET /patient/:patientId
-app.use('/api/medical-history', require('./routes/medicalHistory'));
+app.use('/api/medical-history', require('./src/routes/medicalHistory'));
 // 404 HANDLER
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
