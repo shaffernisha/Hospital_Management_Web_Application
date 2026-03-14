@@ -5,7 +5,7 @@ const User = require('../models/User');
 const { protect, adminOnly } = require('../middleware/auth');
 
 // GET all doctors (public - for patient dropdown and doctors tab)
-router.get('/', protect, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     console.log('[Doctors] Fetching all doctors...');
     
