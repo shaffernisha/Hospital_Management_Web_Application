@@ -1,0 +1,53 @@
+{
+  "name": "healnow-backend",
+  "version": "1.0.0",
+  "description": "HealNow Hospital Management System Backend - Complete Healthcare Solution",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "hospital",
+    "healthcare",
+    "management",
+    "appointments",
+    "prescriptions",
+    "patient",
+    "doctor",
+    "admin"
+  ],
+  "author": "HealNow Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.12.0",
+    "@google/generative-ai": "^0.24.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-validator": "^7.0.0",
+    "hbs": "^4.2.0",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^8.0.2",
+    "pdfkit": "^0.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^2.8.8"
+  }
+}
