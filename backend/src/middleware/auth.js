@@ -3,7 +3,7 @@ const User = require('../models/User');
 // PROTECT MIDDLEWARE - BULLETPROOF VERSION
 const protect = async (req, res, next) => {
   try {
-    console.log('[Auth] 🔐 Protect middleware triggered');
+    console.log('[Auth]  Protect middleware triggered');
     console.log('[Auth] Headers:', req.headers);
 
     // Get token from Authorization header
@@ -23,7 +23,7 @@ const protect = async (req, res, next) => {
     console.log('[Auth] Token extracted:', token.substring(0, 20) + '...');
 
     if (!token) {
-      console.log('[Auth] ❌ Token is empty');
+      console.log('[Auth]  Token is empty');
       return res.status(401).json({ 
         success: false, 
         message: 'Token is empty' 
@@ -37,10 +37,10 @@ const protect = async (req, res, next) => {
     let decoded;
     try {
       decoded = jwt.verify(token, JWT_SECRET);
-      console.log('[Auth] ✅ Token verified');
+      console.log('[Auth]  Token verified');
       console.log('[Auth] Decoded user ID:', decoded.id);
     } catch (error) {
-      console.log('[Auth] ❌ Token verification failed:', error.message);
+      console.log('[Auth]  Token verification failed:', error.message);
       return res.status(401).json({ 
         success: false, 
         message: 'Invalid token: ' + error.message 
@@ -51,7 +51,7 @@ const protect = async (req, res, next) => {
     const user = await User.findById(decoded.id);
     
     if (!user) {
-      console.log('[Auth] ❌ User not found in database with ID:', decoded.id);
+      console.log('[Auth]  User not found in database with ID:', decoded.id);
       return res.status(401).json({ 
         success: false, 
         message: 'User not found' 
