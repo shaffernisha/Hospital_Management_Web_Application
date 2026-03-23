@@ -67,12 +67,12 @@ const Header = () => {
   const headerStyles = `
     /* ── Dark mode global tokens - PURE BLACK & WHITE ── */
     [data-theme="dark"] {
-      --bg-header: #000000;              /* ✅ Pure black */
-      --border-header: #2a2a2a;          /* ✅ Dark gray border */
+      --bg-header: #000000;            
+      --border-header: #2a2a2a;         
       --shadow-header: 0 1px 6px rgba(0,0,0,0.6);
-      --text-nav: #e0e0e0;               /* ✅ Light gray text */
-      --text-nav-hover: #ffffff;         /* ✅ Pure white on hover */
-      --logo-tagline: #b0b0b0;           /* ✅ Medium gray */
+      --text-nav: #e0e0e0;             
+      --text-nav-hover: #ffffff;       
+      --logo-tagline: #b0b0b0;         
     }
     :root {
       --bg-header: #ffffff;
@@ -265,8 +265,8 @@ const Header = () => {
     }
 
     [data-theme="dark"] .btn-login {
-      color: #ffffff;                /* ✅ Pure white text */
-      border-color: #ffffff;         /* ✅ Pure white border */
+      color: #ffffff;            
+      border-color: #ffffff;       
     }
 
     .btn-login:hover {
@@ -276,8 +276,8 @@ const Header = () => {
     }
 
     [data-theme="dark"] .btn-login:hover {
-      background: #ffffff;           /* ✅ White background */
-      color: #000000;                /* ✅ Black text */
+      background: #ffffff;         
+      color: #000000;               
       box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
     }
 
@@ -322,7 +322,7 @@ const Header = () => {
       font-size: 0.9rem; 
     }
     [data-theme="dark"] .user-name { 
-      color: #ffffff;           /* ✅ Pure white */
+      color: #ffffff;          
     }
 
     .user-role {
@@ -374,7 +374,7 @@ const Header = () => {
     }
 
     [data-theme="dark"] .hamburger span { 
-      background: #ffffff;    /* ✅ Pure white */
+      background: #ffffff;  
     }
 
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
