@@ -8,7 +8,7 @@ const PatientDashboard = () => {
   const [user, setUser] = useState(null);
   const [appointments, setAppointments] = useState([]);
   const [doctors, setDoctors] = useState([]);
-  const [prescriptions, setPrescriptions] = useState([]); // ✅ ADDED
+  const [prescriptions, setPrescriptions] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [showBooking, setShowBooking] = useState(false);
@@ -698,7 +698,7 @@ const PatientDashboard = () => {
     loadData();
   }, [navigate]);
 
-  // ✅ UPDATED loadData WITH PRESCRIPTIONS
+  //  loadData WITH PRESCRIPTIONS
   const loadData = async () => {
     try {
       setLoading(true);
@@ -746,7 +746,7 @@ const PatientDashboard = () => {
         setDoctors([]);
       }
 
-      // ✅ FETCH PRESCRIPTIONS
+      //  FETCH PRESCRIPTIONS
       try {
         console.log('[DEBUG] Fetching prescriptions from /api/prescriptions/patient');
         const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -783,7 +783,7 @@ const PatientDashboard = () => {
     }
   };
 
-  // ✅ FIXED BOOKING HANDLER - SIMPLE & NO BLINKING
+  //BOOKING HANDLER 
   const handleBookAppointment = async () => {
     try {
       if (!bookingForm.doctorId || !bookingForm.appointmentDate || !bookingForm.appointmentTime || !bookingForm.reason) {
@@ -810,8 +810,6 @@ const PatientDashboard = () => {
           appointmentTime: '',
           reason: '',
         });
-
-        // ✅ Wait 2 seconds then refresh ONCE
         console.log('[BOOKING] Refreshing data...');
         await new Promise(resolve => setTimeout(resolve, 2000));
         loadData();
@@ -825,8 +823,7 @@ const PatientDashboard = () => {
       alert('Error booking appointment: ' + (error.response?.data?.message || error.message));
     }
   };
-// ✅ FIXED MEDICAL HISTORY SUBMIT
-const handleMedicalHistorySubmit = async () => {
+  const handleMedicalHistorySubmit = async () => {
   try {
     console.log('[Medical History] Saving medical history...');
 
@@ -867,7 +864,7 @@ const handleMedicalHistorySubmit = async () => {
     console.log('[Medical History] Response:', data);
 
     if (data.success) {
-      console.log('[Medical History] ✅ Saved successfully');
+      console.log('[Medical History]  Saved successfully');
       alert('Medical history saved successfully!');
       setShowMedicalHistory(false);
       setMedicalHistoryStep(1);
