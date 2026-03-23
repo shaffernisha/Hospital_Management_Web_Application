@@ -28,7 +28,7 @@ const ChatWindow = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const res = await fetch('http://localhost:5000/api/chatbot/send-message', {
+      const res = await fetch('https://hospital-management-web-application-2.onrender.com/api/chatbot/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const ChatWindow = () => {
         body: JSON.stringify({ message: userMessage })
       });
 
-      // ✅ FIX: Safe JSON parse — avoid crash if server returns non-JSON
+      // FIX: Safe JSON parse — avoid crash if server returns non-JSON
       let data;
       try {
         data = await res.json();
@@ -45,7 +45,7 @@ const ChatWindow = () => {
         throw new Error('Server returned an invalid response');
       }
 
-      // ✅ FIX: Read data.response (not data.data.response)
+      //  FIX: Read data.response (not data.data.response)
       if (data && data.success && data.response) {
         setMessages(prev => [...prev, { sender: 'bot', text: data.response }]);
       } else {
