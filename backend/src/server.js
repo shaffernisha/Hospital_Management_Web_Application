@@ -13,7 +13,7 @@ app.use(cors());
 
 console.log('[Server] Starting...');
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/healnow')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://shaffernisha96_db_user:SanaYusra0502@cluster0.fqtdoww.mongodb.net/healnow?appName=Cluster0')
   .then(() => console.log('[Database] Connected'))
   .catch(err => console.log('[Database Error]', err.message));
 // Health check endpoints
