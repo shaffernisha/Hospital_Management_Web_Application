@@ -46,7 +46,7 @@ router.post('/register', async (req, res) => {
     await newUser.save();
     console.log('[Auth] -User saved successfully');
 
-    // ✅ CREATE ROLE-SPECIFIC PROFILE WITH ALL REQUIRED FIELDS
+    //  CREATE ROLE-SPECIFIC PROFILE WITH ALL REQUIRED FIELDS
     if (newUser.role === 'patient') {
       console.log('[Auth] Creating patient profile...');
       const patient = new Patient({
