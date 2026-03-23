@@ -53,28 +53,28 @@ const AdminDashboard = () => {
   const fetchAllData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const statsRes = await fetch('http://localhost:5000/api/admin/stats', {
+      const statsRes = await fetch('https://hospital-management-web-application-2.onrender.com/api/admin/stats', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (statsRes.ok) {
         const data = await statsRes.json();
         if (data.success) setStats(data.data);
       }
-      const doctorsRes = await fetch('http://localhost:5000/api/admin/doctors', {
+      const doctorsRes = await fetch('https://hospital-management-web-application-2.onrender.com/api/admin/doctors', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (doctorsRes.ok) {
         const data = await doctorsRes.json();
         if (data.success) setDoctors(data.data);
       }
-      const seekersRes = await fetch('http://localhost:5000/api/admin/seekers', {
+      const seekersRes = await fetch('https://hospital-management-web-application-2.onrender.com/api/admin/seekers', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (seekersRes.ok) {
         const data = await seekersRes.json();
         if (data.success) setSeekers(data.data);
       }
-      const appointmentsRes = await fetch('http://localhost:5000/api/admin/appointments', {
+      const appointmentsRes = await fetch('https://hospital-management-web-application-2.onrender.com/api/admin/appointments', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (appointmentsRes.ok) {
@@ -103,7 +103,7 @@ const AdminDashboard = () => {
         consultationFee: doctorForm.consultationFee
       };
 
-      const response = await fetch('http://localhost:5000/api/admin/create-doctor', {
+      const response = await fetch('https://hospital-management-web-application-2.onrender.com/api/admin/create-doctor', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/admin/doctor/${doctorId}`, {
+      const response = await fetch(`https://hospital-management-web-application-2.onrender.com/api/admin/doctor/${doctorId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -147,7 +147,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure?')) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/admin/seeker/${seekerId}`, {
+      const response = await fetch(`https://hospital-management-web-application-2.onrender.com/api/admin/seeker/${seekerId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
