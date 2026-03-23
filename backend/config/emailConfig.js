@@ -80,7 +80,7 @@ const doctorRegistrationEmail = (doctorName, email, password) => {
         <p><strong>Temporary Password:</strong> <code style="background: #e0e0e0; padding: 5px;">${password}</code></p>
       </div>
       
-      <p><strong>⚠️ Important:</strong> Please change your password immediately after your first login.</p>
+      <p><strong>Important:</strong> Please change your password immediately after your first login.</p>
       
       <p>You can now log in at: <a href="http://localhost:5173/login">http://localhost:5173/login</a></p>
       
