@@ -1,6 +1,5 @@
-// ====================================================================================================
+
 // PRESCRIPTION MODEL
-// ====================================================================================================
 const mongoose = require('mongoose');
 
 const prescriptionSchema = new mongoose.Schema({
@@ -19,7 +18,7 @@ const prescriptionSchema = new mongoose.Schema({
     ref: 'Doctor',
     required: true
   },
-  // ✅ Array of medicines
+  //  Array of medicines
   medicines: [{
     name: {
       type: String,
@@ -46,22 +45,22 @@ const prescriptionSchema = new mongoose.Schema({
       example: 'Take with food'
     }
   }],
-  // ✅ Diagnosis
+  // Diagnosis
   diagnosis: {
     type: String,
     required: true
   },
-  // ✅ Doctor's instructions
+  // Doctor's instructions
   instructions: {
     type: String,
     default: null
   },
-  // ✅ Follow-up appointment
+  //  Follow-up appointment
   followUpDate: {
     type: Date,
     default: null
   },
-  // ✅ Patient sharing status
+  //  Patient sharing status
   sharedWithPatient: {
     type: Boolean,
     default: false
@@ -70,7 +69,7 @@ const prescriptionSchema = new mongoose.Schema({
     type: Date,
     default: null
   },
-  // ✅ Lab tests if needed
+  //  Lab tests if needed
   labTests: [{
     testName: String,
     testDate: Date,
