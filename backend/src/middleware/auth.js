@@ -31,7 +31,7 @@ const protect = async (req, res, next) => {
     }
 
     // Verify token
-    const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
+    const JWT_SECRET = process.env.JWT_SECRET || '608166ff480b986131d93f1c70913dbcd01b39d52fd6e7cac9e8e609d1c561ed';
     console.log('[Auth] Verifying with JWT_SECRET:', JWT_SECRET.substring(0, 10) + '...');
 
     let decoded;
