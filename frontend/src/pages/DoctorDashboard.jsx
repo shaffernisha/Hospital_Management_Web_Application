@@ -661,7 +661,7 @@ const DoctorDashboard = () => {
       console.log('[Medical History] Fetching for patient:', patientUserId);
 
       const token = localStorage.getItem('token');
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const API_URL = import.meta.env.VITE_API_URL || 'https://hospital-management-web-application-2.onrender.com/api';
 
       const response = await fetch(`${API_URL}/medical-history/patient/${patientUserId}`, {
         method: 'GET',
@@ -688,7 +688,7 @@ const DoctorDashboard = () => {
     }
   };
 
-  // ✅ CONFIRM APPOINTMENT HANDLER
+  // CONFIRM APPOINTMENT HANDLER
   const handleConfirmAppointment = async (appointmentId) => {
     try {
       if (!window.confirm('Are you sure you want to confirm this appointment?')) {
@@ -724,7 +724,7 @@ const DoctorDashboard = () => {
     }
   };
 
-  // ✅ FIXED PRESCRIPTION CREATION HANDLER
+  // FIXED PRESCRIPTION CREATION HANDLER
   const handleCreatePrescription = async () => {
     try {
       console.log('[Prescription] Creating prescription...');
@@ -769,7 +769,7 @@ const DoctorDashboard = () => {
       console.log('[Prescription] Response:', response);
 
       if (response && response.success) {
-        console.log('[Prescription] ✅ Prescription created successfully');
+        console.log('[Prescription] Prescription created successfully');
         alert('Prescription created successfully!');
 
         setShowPrescription(false);
